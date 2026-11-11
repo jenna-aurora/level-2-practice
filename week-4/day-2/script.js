@@ -61,3 +61,15 @@ menu.forEach(function (item) {
 // You need an if / else:
 //   if (item.price < 5) { ...one className... } else { ...another className... }
 // Try "card p-3 bg-success-subtle" for the cheap ones.
+function createItemCard(item) {
+  const itemCard = document.createElement("div");
+  if (item.price < 5) {
+    itemCard.className = "card p-3 bg-success-subtle";
+  } else {
+    itemCard.className = "card p-3";
+  }
+  itemCard.textContent = item.name + ": $" + item.price;
+  area.appendChild(itemCard);
+}
+
+menu.forEach(createItemCard);
