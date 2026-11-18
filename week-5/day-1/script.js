@@ -29,10 +29,9 @@ async function getWeather() {
   // ---------- Step 2: Dig out one value ----------
   // EXAMPLE: the body is an object. Use dots to walk into it, like in your API tool's body view.
   console.log("Temperature:", data.current.temperature_2m);
-  console.log("Wind:", data.current.wind_speed_10m);
 
   // YOUR TURN: log the wind speed. Find its name in the console's object first.
-
+  console.log("Wind:", data.current.wind_speed_10m);
   // ---------- Step 3: Put it on the page ----------
   // EXAMPLE: the number, plus its unit (the unit lives in current_units).
   const weather = document.getElementById("weather");
