@@ -37,7 +37,25 @@ async function loadRecipe() {
     title.textContent = recipe.name;
     card.appendChild(title);
 
-    recipeArea.appendChild(card);
+    const image = document.createElement("img");
+    image.src = recipe.image;
+    image.alt = recipe.name;
+    image.className = "img-fluid rounded mb-2";
+    card.appendChild(image);
+
+    const ingredientsHeading = document.createElement("h3");
+    ingredientsHeading.textContent = "Ingredients:";
+    card.appendChild(ingredientsHeading);
+
+    const ingredientsList = document.createElement("ul");
+
+    recipe.ingredients.forEach((ingredient) => {
+      const li = document.createElement("li");
+      li.textContent = ingredient;
+      ingredientsList.appendChild(li);
+    });
+
+    card.appendChild(ingredientsList);
 
     // YOUR TURN: add 2 more fields to the card, under the title. For example:
     //   a <p> with the cuisine:           "Cuisine: Italian"
@@ -95,12 +113,6 @@ button.addEventListener("click", loadRecipe);
 // ---------- Extra (if you finish early) ----------
 // 1. Show the ingredients as a list: createElement("ul"), then recipe.ingredients.forEach(...)
 //    makes one <li> per ingredient.
-const ingredientsList = document.createElement("ul");
-recipe.ingredients.forEach((ingredient) => {
-  const li = document.createElement("li");
-  li.textContent = ingredient;
-  ingredientsList.appendChild(li);
-});
-recipeCard.appendChild(ingredientsList);
+
 // 2. Show the picture: createElement("img"), set .src = recipe.image and .alt = recipe.name,
 //    and className = "img-fluid rounded mb-2".
