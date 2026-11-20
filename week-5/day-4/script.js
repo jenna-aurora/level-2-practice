@@ -95,5 +95,12 @@ button.addEventListener("click", loadRecipe);
 // ---------- Extra (if you finish early) ----------
 // 1. Show the ingredients as a list: createElement("ul"), then recipe.ingredients.forEach(...)
 //    makes one <li> per ingredient.
+const ingredientsList = document.createElement("ul");
+recipe.ingredients.forEach((ingredient) => {
+  const li = document.createElement("li");
+  li.textContent = ingredient;
+  ingredientsList.appendChild(li);
+});
+recipeCard.appendChild(ingredientsList);
 // 2. Show the picture: createElement("img"), set .src = recipe.image and .alt = recipe.name,
 //    and className = "img-fluid rounded mb-2".
