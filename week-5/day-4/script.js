@@ -14,7 +14,7 @@ async function loadRecipe() {
     recipeArea.textContent = ""; // clear the old recipe first
 
     // ---------- Step 2 goes here (loading message) ----------
-
+    statusText.textContent = "Loading recipe...";
     const response = await fetch(url);
 
     // ---------- Step 3 goes here (no recipe with that number) ----------
@@ -43,12 +43,12 @@ async function loadRecipe() {
     //   a <p> with the cuisine:           "Cuisine: Italian"
     //   a <p> with the prep time:         "Ready in 20 minutes"   (recipe.prepTimeMinutes)
     // Each one: createElement, textContent, card.appendChild.
-    const cuisine = document.createElement("h2");
+    const cuisine = document.createElement("p");
     cuisine.className = "fs-3 h4";
     cuisine.textContent = `Cuisine: ${recipe.cuisine}`;
     card.appendChild(cuisine);
 
-    const ready = document.createElement("h2");
+    const ready = document.createElement("p");
     ready.className = "fs-3 h4";
     ready.textContent = `Ready in ${recipe.cookTimeMinutes} minutes!!`;
     card.appendChild(ready);
