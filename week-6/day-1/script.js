@@ -40,6 +40,7 @@ async function searchCharacters() {
     const data = await response.json();
     console.log(data);
 
+    statusText.textContent = `Found ${data.info.count} characters`;
     // Step 1: #2 - Take the Searching... message away so it isn't there after you get your results
 
     // SUCCESS: one list item per character
